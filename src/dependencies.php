@@ -38,3 +38,8 @@ $container['db'] = function($c) {
 $container['task'] = function($c) {
     return new App\Model\Task($c->get('db'));
 };
+
+// Subtask Model
+$container['subtask'] = function($c) {
+    return new App\Model\Subtask($c->get('db'));
+};
