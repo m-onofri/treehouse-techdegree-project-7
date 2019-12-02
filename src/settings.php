@@ -17,7 +17,7 @@ return [
         // API
         'api' => [
             'version' => 'v1',
-            'base_url' => 'http://localhost:8888',
+            'base_url' => 'http://localhost:4000',
         ],
 
         // Database

@@ -65,7 +65,7 @@ class Task {
         $statement->bindParam('id', $task_id);
         $statement->execute();
 
-        return ['message' => 'The task was deleted!'];;
+        return ['message' => 'The task was deleted!'];
     }
 
 }
