@@ -22,6 +22,7 @@ class Subtask
         if (empty($subtasks)) {
             throw new ApiException(ApiException::SUBTASK_NOT_FOUND, 404);
         }
+        return $subtasks;
     }
 
     public function getSubtask($task_id, $subtask_id)
@@ -36,6 +37,7 @@ class Subtask
         if (empty($subtasks)) {
             throw new ApiException(ApiException::SUBTASK_NOT_FOUND, 404);
         }
+        return $subtask;
     }
 
     public function createSubtask($data)

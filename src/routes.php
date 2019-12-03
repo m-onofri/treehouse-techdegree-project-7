@@ -1,17 +1,17 @@
 <?php
 // Routes
-$app->get('/api/v1', function ($request, $response, $args) {
+$app->get('/', function ($request, $response, $args) {
     $endpoints = [
         'all tasks' => $this->api['api_url'].'/todos',
         'single task' => $this->api['api_url'].'/todos/{task_id}',
         'subtasks by task' => $this->api['api_url'].'/todos/{task_id}/subtasks',
         'single subtask' => $this->api['api_url'].'/todos/{task_id}/subtasks/{subtask_id}',
-        'help' => $this->api['api_url'].'/', 
+        'help' => $this->api['base_url'].'/', 
     ];
     $result = [
-        'endpoints' => $endpoints,
         'version' => $this->api['version'],
         'timestamp' => time(),
+        'endpoints' => $endpoints,
     ];
     return $response->withJson($result, 200, JSON_PRETTY_PRINT);
 });

@@ -22,6 +22,7 @@ class Task {
         if (empty($tasks)) {
             throw new ApiException(ApiException::TASK_NOT_FOUND, 404);
         }
+        return $tasks;
     }
 
     public function getTask($task_id)
@@ -35,6 +36,7 @@ class Task {
         if (empty($task)) {
             throw new ApiException(ApiException::TASK_NOT_FOUND, 404);
         }
+        return $task;
     }
 
     public function createTask($data)
