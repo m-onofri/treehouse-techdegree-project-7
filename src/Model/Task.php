@@ -76,12 +76,23 @@ class Task {
 
     public function deleteTask($task_id)
     {
+        // Check if the task exists
         $this->getTask($task_id);
+
+        // Delete the task from the tasks table
         $statement = $this->database->prepare(
             'DELETE FROM tasks WHERE id = :id'
         );
         $statement->bindParam('id', $task_id);
         $statement->execute();
+
+        // Delete all the subtasks associated to the task from the task table
+        $statement1 = $this->database->prepare(
+            'DELETE FROM subtasks WHERE task_id = :task_id'
+        );
+        $statement1->bindParam('task_id', $task_id);
+        $statement1->execute();
+
         if ($statement->rowCount() < 1) {
             throw new ApiException(ApiException::TASK_DELETE_FAILED);
         }

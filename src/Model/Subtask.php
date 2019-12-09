@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Model;
+use App\Exception\ApiException;
 
 class Subtask
 {
@@ -34,7 +35,7 @@ class Subtask
         $statement->bindParam('id', $subtask_id);
         $statement->execute();
         $subtask = $statement->fetch();
-        if (empty($subtasks)) {
+        if (empty($subtask)) {
             throw new ApiException(ApiException::SUBTASK_NOT_FOUND, 404);
         }
         return $subtask;
